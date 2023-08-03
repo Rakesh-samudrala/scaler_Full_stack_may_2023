@@ -52,7 +52,6 @@ startBtn.addEventListener("click", function () {
 resetBtn.addEventListener("click", function () {
     // timerObject.timeLeft = 0;
     prevInsecs=0;
-
     clearTimeout(timerId);
     // clear the text 
 })
@@ -70,7 +69,7 @@ function timer(timeInSeconds) {
 }
 
 
-// singleton -> export it as component
+// export it as component
 
 
 
