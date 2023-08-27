@@ -1,60 +1,29 @@
 import { useState } from 'react'
+import Todo from './components/Todo/Todo';
+import GetData from './components/useEffectExamples/GetData';
+import ResizeAwareComponent from './components/useEffectExamples/ResizeAwareComponent';
+import UseEffectCleanup from './components/useEffectExamples/UseEffectCleanup';
+import UseEffectExamples from './components/useEffectExamples/UseEffectExamples';
 
-// import './App.css'
 
 function App() {
-  // you will never mutatae the state variable -> make a copy of it 
-  const [tasksArr, setTasks] = useState([]);
-
-  const addTask = (inputValue) => {
-    const newTask = inputValue;
-    // we will never mutate  a state variable on our own 
-    let newTaskArr = [...tasksArr, newTask];
-    setTasks(newTaskArr);
-  }
-  return (
-    // react Fragments
-    <>
-      <InputBox addTask={addTask}></InputBox>
-      <List tasksArr={tasksArr}></List>
-    </>
-  )
+    return (
+        // <Todo></Todo>
+        // <GetData></GetData>
+        // <UseEffectExamples></UseEffectExamples>
+        // <UseEffectCleanup></UseEffectCleanup>
+        <ResizeAwareComponent></ResizeAwareComponent>
+    )
 }
 
 // rfce
 
-function InputBox(props) {
-  const [inputValue, setValue] = useState("");
-  const handleInput = (e) => {
-    setValue(e.target.value);
-  }
-  const addTaskChild = () => {
-    props.addTask(inputValue);
-    setValue("");
-  }
-  // we have provide acces to taskArr -> task ARR
-  return (
-    <div className="inputbox">
-      <input type="text" value={inputValue}
-        onChange={handleInput} />
 
-      <button onClick={addTaskChild}>Add Task</button>
-    </div>
-  )
-}
 
-function List(props) {
-  const { tasksArr } = props;
-  return (
-    <div className="list">
-      {/* list */}
-      <ul>
-        {tasksArr.map((task) => {
-          return <li>{task}</li>
-        })}
-      </ul>
-    </div>
-  )
-}
+
+
+
+
+
 
 export default App;
